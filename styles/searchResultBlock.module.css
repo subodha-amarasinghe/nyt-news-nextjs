@@ -1,0 +1,11 @@
+.resultblock {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.resultblockgrid {
+  padding: 8px;
+}
+.resultblockgrid:hover {
+  background-color: #e1f5fe;
+}
