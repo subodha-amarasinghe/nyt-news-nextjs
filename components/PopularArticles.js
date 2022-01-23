@@ -2,7 +2,7 @@ import { Grid } from '@mui/material';
 import React from 'react';
 import Articleblock from './ArticleBlock';
 
-const Populararticles = ({ articles, nonOfResults }) => {
+const Populararticles = ({ articles }) => {
     return (
         <div>
 

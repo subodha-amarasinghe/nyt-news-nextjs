@@ -28,14 +28,14 @@ npm run build
 yarn build
 ```
 
-## Testing
+## E2E Testing
 
 First, run the development server:
 
 ```bash
-npm run test
+npm run test:e2e
 # or
-yarn test
+yarn test:e2e
 ```
 
 ## Learn More

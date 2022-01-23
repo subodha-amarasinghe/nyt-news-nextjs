@@ -32,10 +32,13 @@ const PeriodSelector = (props) => {
                     defaultValue={1}
                     value={days}
                     onChange={handleChangeDays}
+                    placeholder='Period'
+                    label="Period"
+                    data-testid="select"
                 >
-                    <MenuItem value={1}>1 Day</MenuItem>
-                    <MenuItem value={7}>7 Days</MenuItem>
-                    <MenuItem value={30}>30 Days</MenuItem>
+                    <MenuItem value={1} data-testid="select-option" >1 Day</MenuItem>
+                    <MenuItem value={7} data-testid="select-option" >7 Days</MenuItem>
+                    <MenuItem value={30} data-testid="select-option" >30 Days</MenuItem>
                 </Select>
             </FormControl>
         </div>

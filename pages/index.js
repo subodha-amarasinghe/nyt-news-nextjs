@@ -1,4 +1,4 @@
-import { Typography, Grid, Divider, Skeleton } from '@mui/material';
+import { Typography, Grid, Divider } from '@mui/material';
 import Populararticles from '../components/PopularArticles';
 import { Container } from '@mui/material';
 import Searchbar from '../components/SearchBar';
@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react'
 import Preloader from '../components/Preloader';
 import SearchResults from '../components/SearchResults';
-export default function Home({ results, nonOfResults, copyright, apiKey }) {
+export default function Home({ results, nonOfResults, apiKey }) {
   const router = useRouter()
   const { d } = router.query
   const [days, setDays] = useState(1);
@@ -26,6 +26,8 @@ export default function Home({ results, nonOfResults, copyright, apiKey }) {
     }
   }, [results]);
 
+
+  // Get Search results from web browser's http request using search term
   useEffect(() => {
     async function handleSearch() {
       if (searchTerm === '') {
@@ -34,7 +36,7 @@ export default function Home({ results, nonOfResults, copyright, apiKey }) {
         setLoading(true)
         const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchTerm}&api-key=${apiKey}`)
         const articles = await res.json()
-        console.log("articles===>>", articles)
+        // console.log("articles===>>", articles)
         setSearchResults(articles && articles.response && articles.response.docs ? articles.response.docs : [])
         setLoading(false)
       }
@@ -42,15 +44,15 @@ export default function Home({ results, nonOfResults, copyright, apiKey }) {
     handleSearch()
   }, [searchTerm, apiKey]);
 
+
   const handleChangeDays = (val) => {
     setDays(val ? val : 1)
     setSearchResults(null)
     setSearchTerm('')
   }
 
-  const handleChangeSearchKey = async (val) => {
+  const handleChangeSearchKey = (val) => {
     setSearchTerm(val)
-
   }
 
   return (
@@ -88,6 +90,9 @@ export default function Home({ results, nonOfResults, copyright, apiKey }) {
   )
 }
 
+
+
+// Get Most Popular results from server side props
 export async function getServerSideProps(context) {
   let days = context.query.d && [1, 7, 30].indexOf(parseInt(context.query.d)) > -1 ? context.query.d : 1;
   const res = await fetch(`https://api.nytimes.com/svc/mostpopular/v2/viewed/${days}.json?api-key=${process.env.NYT_API_KEY}`)
