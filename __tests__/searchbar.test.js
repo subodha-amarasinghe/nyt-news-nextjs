@@ -1,14 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import SearchBar from '@/components/SearchBar'
 
-describe('Nav', () => {
-    it('renders search bar', () => {
-        const { container } = render(<SearchBar />)
+it('check if search bar displays', () => {
+    const { getByTestId } = render(<SearchBar term='' />);
+    const nameInput = getByTestId('searchInput');
 
-        // const heading = screen.getByRole('heading', {
-        //     name: /No Results Found/i,
-        // })
-
-        expect(container.firstChild).toBeInTheDocument();
-    })
-})
+    expect(nameInput).toHaveValue('');
+});

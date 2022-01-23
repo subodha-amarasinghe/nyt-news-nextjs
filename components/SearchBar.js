@@ -30,6 +30,9 @@ const Searchbar = (props) => {
                     size="small"
                     placeholder="Search"
                     id="input-with-icon-adornment"
+                    inputProps={{
+                        'data-testid': "searchInput"
+                    }}
                     onKeyDown={handleChangeSearchTerm}
                     endAdornment={
                         <InputAdornment position="end">

@@ -28,6 +28,16 @@ npm run build
 yarn build
 ```
 
+## Unit Testing
+
+First, run the development server:
+
+```bash
+npm run test:unit
+# or
+yarn test:unit
+```
+
 ## E2E Testing
 
 First, run the development server:

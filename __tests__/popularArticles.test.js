@@ -72,6 +72,5 @@ describe('Nav', () => {
         //     name: /No Results Found/i,
         // })
 
-        expect(container.firstChild).toBeInTheDocument();
     })
 })

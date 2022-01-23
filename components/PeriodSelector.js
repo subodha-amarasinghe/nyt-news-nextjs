@@ -34,7 +34,9 @@ const PeriodSelector = (props) => {
                     onChange={handleChangeDays}
                     placeholder='Period'
                     label="Period"
-                    data-testid="select"
+                    inputProps={{
+                        'data-testid': "selectInput"
+                    }}
                 >
                     <MenuItem value={1} data-testid="select-option" >1 Day</MenuItem>
                     <MenuItem value={7} data-testid="select-option" >7 Days</MenuItem>

@@ -29,5 +29,10 @@
     "eslint-plugin-testing-library": "^5.0.4",
     "jest": "^27.4.7",
     "start-server-and-test": "^1.14.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:cypress/recommended"
+    ]
   }
 }
